@@ -29,7 +29,7 @@ public abstract class UserDao implements AbstractDao {
     @Transaction
     public int getSeqAndSkip(int step) {
         int id = getNextVal();
-        DBIProvider.getDBI().useHandle(h -> h.execute("ALTER SEQUENCE user_seq RESTART WITH " + (id + step)));
+        for (int i = 0; i < step - 1; i++) { getNextVal();} // DBIProvider.getDBI().useHandle(h -> h.execute("ALTER SEQUENCE user_seq RESTART WITH " + (id + step))); // useHandle при вызове зависает (может что-то с многозадачностью?). Сделал циклом...
         return id;
     }
 
