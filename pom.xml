@@ -11,7 +11,7 @@
     <name>Masterjava Root</name>
     <url>https://github.com/JavaOPs/masterjava</url>
 
-    <modules>
+    <modules><!-- HW06 -->
         <module>parent</module>
         <module>parent-web</module>
 
